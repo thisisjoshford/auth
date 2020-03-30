@@ -20,6 +20,6 @@ describe('User Model', () => {
 
     const token = user.authToken();
     expect(token).not.toBeUndefined();
-  })
+  });
 });
 
