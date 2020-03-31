@@ -32,4 +32,17 @@ describe('auth routes', () => {
       });
   });
 
+  it('logs in a suser', async() => {
+    const user = await User.create({ username: 'j0shf0rd', password: 'sup3rs3cr3t' });
+    return request(app)
+      .post('/api/v1/auth/login')
+      .send({ username: 'j0shf0rd', password: 'sup3rs3cr3t'})
+      .then(res => {
+        expect(res.body).toEqual({
+          _id: expect.any(String),
+          username: 'j0shf0rd',
+          __v: 0
+        });
+      });
+  });
 });
