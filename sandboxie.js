@@ -5,7 +5,7 @@ const user = new User({
   password: 'sup3rs3cr3t'
 });
 
-// console.log(user);
+console.log(user);
 
 console.log(user.authToken());
 

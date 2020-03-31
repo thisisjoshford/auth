@@ -1,4 +1,6 @@
+require('dotenv').config();
 const User = require('../lib/models/User');
+
 
 describe('User Model', () => {
 
@@ -8,7 +10,7 @@ describe('User Model', () => {
       password: 'superSecretPassword'
     });
 
-    expect(user.toJSON().passwordHash).toEqual(expect.any(String));
+    expect(user.passwordHash).toEqual(expect.any(String));
     expect(user.toJSON().password).toBeUndefined();
   });
 
