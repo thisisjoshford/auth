@@ -23,5 +23,20 @@ describe('User Model', () => {
     const token = user.authToken();
     expect(token).not.toBeUndefined();
   });
+
+  it('finds a user by token', () => {
+    const user = new User({
+      username: 'joshford',
+      password: 'superSecretPassword'
+    });
+    
+    const token = user.authToken();
+
+    User
+      .findByToken(token)
+      .then(foundUser => {
+        expect(foundUser.toJSON()).toEqual(user.toJSON());
+      });
+  });
 });
 
